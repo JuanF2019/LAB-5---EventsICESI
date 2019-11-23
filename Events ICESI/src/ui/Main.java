@@ -8,11 +8,17 @@ public class Main{
 	private Scanner inputStr;
 	private University university;
 	private LocalDateTime currentDate;
+	/**Name: Main<br>
+	 * Description: Constructor for main class Main<br>
+	 */
 	public Main(){
 		university = new University("ICESI");
 		LocalDateTime currentDate = LocalDateTime.now();
 	}
-	
+	/**Name: main
+	 * Description: Executable static main method 
+	 * @param args arguments
+	 */
 	public static void main(String[] args){
 		Main obj = new Main();
 		Scanner inputNum = new Scanner(System.in);
@@ -61,7 +67,9 @@ public class Main{
 			} 
 		}		
 	}
-	
+	/**Name: addEvent
+	 * Description: Interacts with the user to add an Event
+	 */
 	public void addEvent() {
 		inputNum = new Scanner(System.in);
 		inputStr = new Scanner(System.in);
@@ -213,7 +221,9 @@ public class Main{
 		}		
 		university.updateStatus(this.currentDate);		
 	}
-	
+	/**Name: addEvent
+	 * Description: Interacts with the user to remove an Event
+	 */
 	public void removeEvent() {
 		inputStr = new Scanner(System.in);
 		String id = "";
@@ -221,7 +231,11 @@ public class Main{
 		id = inputStr.nextLine();
 		System.out.println(university.removeEvent(id));		
 	}
-	
+	/**Name: isLeap
+	 * Description: check if a given year is leap.
+	 * @param year int Year to check
+	 * @return isLeap True or false depending if the year is leap or not.
+	 */
 	public boolean isLeap(int year) {
 		boolean isLeap = false; 		
 		if(year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
@@ -229,7 +243,9 @@ public class Main{
 		}		
 	    return isLeap;
 	}
-	
+	/**Name: updateStatus
+	 * Description: Interacts with the user to update the status of all University auditoriums.
+	 */
 	public void updateStatus() {
 		inputNum = new Scanner(System.in);
 		inputStr = new Scanner(System.in);
@@ -280,11 +296,15 @@ public class Main{
 		
 		System.out.println("Status updated succesfully");
 	}
-	
+	/**Name: toStringAuditoriums
+	 * Description: Prints the university auditoriums with is Id
+	 */
 	public void toStringAuditoriums(){
 		System.out.println(university.toStringEvents());
 	}
-	
+	/**Name: reportChair
+	 * Description: Interacts with the user to report a damaged chair
+	 */
 	public void reportChair() {
 		String audId = "";
 		int audIdInt = 0;
@@ -315,11 +335,16 @@ public class Main{
 		
 		System.out.println(university.reportChair(audId, row, column));			
 	}
-	
+	/**Name: setCurrentDate
+	 * Description: Sets the current date and time to the given date and time.
+	 * @param date LocalDateTime date to set current day to.
+	 */
 	public void setCurrentDate(LocalDateTime date) {
 		this.currentDate = date;
 	}
-	
+	/**Name: damagedChairs
+	 * Description: Interacts with the user to print the percentage of damaged chairs in an auditorium.
+	 */
 	public void damagedChairs() {
 		String audId = "";
 		int audIdInt = 0;		
@@ -341,6 +366,6 @@ public class Main{
 		}while(!check);
 		
 		audId = Integer.toString(audIdInt);		
-		System.out.println(university.damagedChairs(audId));
+		System.out.println(university.damagedChairs(audId) + "%");
 	}
 }
