@@ -1,2 +1,2 @@
-# LAB-5-EventsICESI
-APO I Unit 5 Laboratory
+# events-icesi
+Java program to manage events in icesi university.
